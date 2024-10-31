@@ -1,0 +1,61 @@
+{
+	"landingPage": "\/wp-admin\/customize.php?autofocus[panel]=widgets",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "6.4"
+	},
+	"phpExtensionBundles": [
+		"kitchen-sink"
+	],
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Testing the Posts On This Day plugin",
+				"sidebars_widgets": [
+					{
+						"wp_inactive_widgets": [],
+						"primary-widget-area": [
+							"posts_on_this_day-3"
+						],
+						"secondary-widget-area": [],
+						"first-footer-widget-area": [],
+						"second-footer-widget-area": [],
+						"third-footer-widget-area": [],
+						"fourth-footer-widget-area": [],
+						"array_version": 3
+					}
+				]
+			}
+		},
+		{
+			"step": "importFile",
+			"file": {
+				"resource": "url",
+				"url": "https://herve.bzh/test-posts/year-posts.xml"
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeZipFile": {
+				"resource": "wordpress.org\/themes",
+				"slug": "twentyten"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "wordpress.org\/plugins",
+				"slug": "classic-widgets"
+			},
+			"options": {
+				"activate": true
+			}
+		}
+	]
+}
